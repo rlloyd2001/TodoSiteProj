@@ -1,0 +1,15 @@
+<viewdata model="TodoSite.UserInputModel" />
+
+<content:main>
+
+  <h3>Login to Edit Task List</h3>
+
+  <form action="ListTodo" method="POST">
+    <div>
+      First Name
+      <input id="SomeId" type="text" width="240" name="FirstName" /><br/>
+      <input type="Submit" value="Login" />
+    </div>
+  </form>
+  	
+</content:main>

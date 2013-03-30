@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>FubuMVC.QuickStart</id>
+    <version>1.0.0.123</version>
+    <authors>Jeremy D. Miller,  Joshua Arnold,  Corey Kaylor</authors>
+    <owners>Jeremy D. Miller,  Joshua Arnold,  Corey Kaylor</owners>
+    <licenseUrl>https://github.com/DarthFubuMVC/fubumvc/raw/master/license.txt</licenseUrl>
+    <projectUrl>http://mvc.fubu-project.org/</projectUrl>
+    <iconUrl>https://github.com/DarthFubuMVC/fubu-collateral/raw/master/Icons/FubuMvc_256.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A quickstart package to quickly setup a project as a simple FubuMVC application with StructureMap as the IoC container</description>
+    <tags>web framework mvc</tags>
+    <dependencies>
+      <dependency id="FubuMVC.Core" />
+      <dependency id="FubuMVC.StructureMap" />
+      <dependency id="FubuMVC.Core.Assets" />
+      <dependency id="FubuMVC.Core.UI" />
+      <dependency id="FubuMVC.Core.View" />
+      <dependency id="FubuMVC.Diagnostics" />
+      <dependency id="WebActivator" version="1.1" />
+    </dependencies>
+    <references />
+  </metadata>
+</package>

@@ -1,0 +1,10 @@
+<viewdata model="TodoSite.HomeListModel" />
+
+<content:main>
+    
+	<h1>Welcome!</h1>
+  <for each="var item in Model.TextList">
+    <p>${item.Message}</p>
+  </for>
+
+</content:main>

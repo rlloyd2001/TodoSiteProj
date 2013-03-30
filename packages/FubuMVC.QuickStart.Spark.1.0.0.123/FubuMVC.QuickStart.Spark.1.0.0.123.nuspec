@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>FubuMVC.QuickStart.Spark</id>
+    <version>1.0.0.123</version>
+    <authors>Jeremy D. Miller,  Joshua Arnold,  Corey Kaylor</authors>
+    <owners>Jeremy D. Miller,  Joshua Arnold,  Corey Kaylor</owners>
+    <licenseUrl>https://github.com/DarthFubuMVC/fubumvc/raw/master/license.txt</licenseUrl>
+    <projectUrl>http://mvc.fubu-project.org/</projectUrl>
+    <iconUrl>https://github.com/DarthFubuMVC/fubu-collateral/raw/master/Icons/FubuMvc_256.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Quickstart nuget for using FubuMVC with the Spark engine and Twitter Bootstrap</description>
+    <tags>web framework mvc spark</tags>
+    <dependencies>
+      <dependency id="FubuMVC.QuickStart" />
+      <dependency id="FubuMVC.Spark" />
+      <dependency id="FubuMVC.TwitterBootstrap" />
+    </dependencies>
+    <references />
+  </metadata>
+</package>
