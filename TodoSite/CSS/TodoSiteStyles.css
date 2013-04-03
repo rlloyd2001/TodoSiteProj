@@ -1,0 +1,68 @@
+﻿body {
+}
+
+#Content {
+    margin-top: 50px;
+}
+
+#navlist li
+{
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+input[type=text]
+{
+    width: auto;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+div {    
+    margin-bottom: 4px;
+}
+
+table {
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;    
+    margin-bottom: 5px;
+}
+
+table th {
+	font-size:medium;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+
+table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+footer {
+    font-style: italic;
+    font-size: smaller;
+    text-align: center;
+}
+
+.link {
+    min-width: 25px;
+}
+
+.task {
+    min-width: 120px;
+    max-width: 230px;
+}
+
+.control-label {
+    margin-right: 4px;
+}
