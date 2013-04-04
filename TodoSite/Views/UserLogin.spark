@@ -1,8 +1,8 @@
-<viewdata model="TodoSite.UserModel" />
+<viewdata model="TodoSite.UserInputModel" />
 
 <content:main>
   <h3>Login</h3>
-  ${ this.FormFor<UserModel>() }
+  ${ this.FormFor<UserInputModel>() }
     <fieldset>
       <div>
         ${this.LabelFor(x => x.FirstName)}
@@ -19,10 +19,10 @@
     <div id="navcontainer">
       Existing Users
       <ul id="navlist">
-        <for each="var m in new UserTaskListModel().TaskUserList">
-          <test if="m.User.FirstName.Length > 0 && m.User.LastName.Length > 0">
+        <for each="var m in new UsersTasksViewModel().Users">
+          <test if="m.FirstName.Length > 0 && m.LastName.Length > 0">
             <li>
-              ${ m.User.FirstName + " " + m.User.LastName }
+              ${ m.FirstName + " " + m.LastName }
             </li>
           </test>
         </for>

@@ -1,8 +1,9 @@
-<viewdata model="TodoSite.UserTaskListModel" />
+<viewdata model="TodoSite.UsersTasksViewModel" />
 
 <content:main>
   <h3>
-    ${this.DisplayFor(x => x.FullName)}
+    ${this.DisplayFor(x => x.User.FirstName)}
+    ${this.DisplayFor(x => x.User.LastName)}
   </h3>
   <table>
     <tr>
@@ -12,9 +13,9 @@
       <th></th>
     </tr>
     #int idx = 0;
-    <for each="var task in Model.List">
+    <for each="var task in Model.Tasks">
       <tr>
-        <test if="Model.EditTaskIndex == idx || Model.AddTaskIndex == idx">
+        <test if="Model.EditTaskIndex == idx || Model.AddedTaskIndex == idx">
           ${ this.FormFor<TaskInputModel>() }
             <td class="task">
               ${ this.InputFor((TaskInputModel x) => x.Description).Value(task.Description) }
@@ -27,7 +28,7 @@
               <input type="submit" value="Save" />
             </td>
             <td class="link">
-              <test if="Model.AddTaskIndex >= 0">
+              <test if="Model.AddedTaskIndex >= 0">
                 ${ this.LinkTo(new DeleteTaskInputModel{ Index = idx}).Text("Cancel") }
               <else />
                 ${ this.LinkTo(new EditTaskInputModel{ Index = -1 }).Text("Cancel") }

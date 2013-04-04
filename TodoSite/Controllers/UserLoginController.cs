@@ -8,22 +8,18 @@ namespace TodoSite
     public class UserLoginController
     {
         public const string CurrentUserIdKey = "TaskMgrUserIdKey";
-
-        public UserModel UserLogin()
-        {
-            return new UserModel();
+        
+        public UsersTasksViewModel UserLogin(UserInputModel userInputModel)
+        {            
+            UsersTasksViewModel usersTasksVM = new UsersTasksViewModel();
+            usersTasksVM.UserInput = userInputModel;
+            HttpContext.Current.Session[CurrentUserIdKey] = usersTasksVM.User.ID;
+            return usersTasksVM;
         }
 
-        public UserTaskListModel UserLogin(UserModel inputModel)
+        public UserInputModel Home()
         {
-            UserTaskListModel retModel = new UserTaskListModel(inputModel);
-            HttpContext.Current.Session[CurrentUserIdKey] = retModel.UserID;
-            return retModel;
-        }
-
-        public UserModel Home()
-        {
-            return new UserModel();
+            return new UserInputModel();
         }
     }
 }

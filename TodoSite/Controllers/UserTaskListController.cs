@@ -7,42 +7,43 @@ namespace TodoSite
 {
     public class UserTaskListController
     {
-        public UserTaskListModel EditTask(EditTaskInputModel inputModel)
+        public UsersTasksViewModel EditTask(EditTaskInputModel inputModel)
         {
-            UserTaskListModel model = GetUserTaskListModel();
+            UsersTasksViewModel model = GetUsersTasksViewModel();            
             model.EditTaskIndex = inputModel.Index;
             return model;
         }
 
-        public UserTaskListModel DeleteTask(DeleteTaskInputModel inputModel)
+        public UsersTasksViewModel DeleteTask(DeleteTaskInputModel inputModel)
         {
-            UserTaskListModel model = GetUserTaskListModel();
+            UsersTasksViewModel model = GetUsersTasksViewModel();
             model.DeleteTask(inputModel.Index);
             return model;
         }
 
-        public UserTaskListModel SaveTask(TaskInputModel inputModel)
+        public UsersTasksViewModel SaveTask(TaskInputModel inputModel)
         {
-            UserTaskListModel model = GetUserTaskListModel();
+            UsersTasksViewModel model = GetUsersTasksViewModel();
             model.UpdateTask(inputModel.Index, inputModel);
             return model;
         }
 
-        public UserTaskListModel AddTask()
+        public UsersTasksViewModel AddTask()
         {
-            UserTaskListModel model = GetUserTaskListModel();
-            model.AppendTask("new task", DateTime.Now);
-            model.AddTaskIndex = model.List.Count - 1;
+            UsersTasksViewModel model = GetUsersTasksViewModel();
+            model.AddTask(new TaskModel { Description = "new task", Date = DateTime.Now });
             return model;
         }
 
-        private UserTaskListModel GetUserTaskListModel()
+        private UsersTasksViewModel GetUsersTasksViewModel()
         {
             long userID = 0;
             if (HttpContext.Current.Session[UserLoginController.CurrentUserIdKey] != null) {
                 userID = (long)HttpContext.Current.Session[UserLoginController.CurrentUserIdKey];
             }
-            return new UserTaskListModel(userID);
+            UsersTasksViewModel usersTasksVM = new UsersTasksViewModel();
+            usersTasksVM.UserID = userID;
+            return usersTasksVM;
         }
     }
 }

@@ -124,11 +124,11 @@
     <Compile Include="Controllers\UserTaskListController.cs" />
     <Compile Include="Models\EditInputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\TaskListModel.cs" />
+    <Compile Include="Models\UserTasksModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Models\UserTaskListModel.cs" />
+    <Compile Include="Models\UsersTasksViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
