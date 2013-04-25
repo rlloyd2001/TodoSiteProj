@@ -1,0 +1,13 @@
+
+<div id="navcontainer">
+  Existing Users
+  <ul id="navlist">
+    <for each="var m in new UsersTasksViewModel().Users">
+      <test if="m.FirstName.Length > 0 && m.LastName.Length > 0">
+        <li>
+          ${ m.FirstName + " " + m.LastName }
+        </li>
+      </test>
+    </for>
+  </ul>
+</div>

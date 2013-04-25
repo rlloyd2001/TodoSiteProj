@@ -52,6 +52,8 @@ namespace TodoSite
         private int editTaskIndex = -1;
         private long userID = -1;
 
+        public DateTime LoginTime { get; set; }
+
         public long UserID
         {
             set
@@ -69,6 +71,7 @@ namespace TodoSite
                 if (uInput == null) {
                     return;
                 }
+                LoginTime = uInput.CurrentTime;
                 //find user
                 var result = from l in userTasks.Values
                              where l.User.FirstName.Equals(uInput.FirstName, StringComparison.CurrentCultureIgnoreCase)
@@ -223,6 +226,7 @@ namespace TodoSite
         {
             if (HttpContext.Current.Session[SessionKey] != null) {
                 userTasks = (Dictionary<long, UserTasksModel>)HttpContext.Current.Session[SessionKey];
+                LoginTime = (DateTime) HttpContext.Current.Session["LoginTime"];
             }
             else {
                 userTasks = new Dictionary<long, UserTasksModel>();
@@ -234,6 +238,7 @@ namespace TodoSite
         private void SaveSession()
         {
             HttpContext.Current.Session[SessionKey] = userTasks;
+            HttpContext.Current.Session["LoginTime"] = LoginTime;
         }
     }
 }

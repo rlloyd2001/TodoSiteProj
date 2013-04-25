@@ -12,7 +12,7 @@
       <th></th>
       <th></th>
     </tr>
-    #int idx = 0;
+    <var idx="0" />
     <for each="var task in Model.Tasks">
       <tr>
         <test if="Model.EditTaskIndex == idx || Model.AddedTaskIndex == idx">
@@ -30,25 +30,28 @@
             <td class="link">
               <test if="Model.AddedTaskIndex >= 0">
                 ${ this.LinkTo(new DeleteTaskInputModel{ Index = idx}).Text("Cancel") }
-              <else />
+                <else />
                 ${ this.LinkTo(new EditTaskInputModel{ Index = -1 }).Text("Cancel") }
               </test>
             </td>
-          ${ this.EndForm() }
-        <else />
-          <td class="task">${task.Description}</td>
-          <td class="date">${task.Date.ToShortDateString()}, ${task.Date.ToShortTimeString()}</td>
-          <td class="link">${ this.LinkTo(new EditTaskInputModel{ Index = idx }).Text("Edit") }</td>
-          <td class="link">${ this.LinkTo(new DeleteTaskInputModel{ Index = idx}).Text("Delete") }</td>
+            ${ this.EndForm() }
+            <else />
+            <td class="task">${task.Description}</td>
+            <td class="date">${task.Date.ToShortDateString()}, ${task.Date.ToShortTimeString()}</td>
+            <td class="link">${ this.LinkTo(new EditTaskInputModel{ Index = idx }).Text("Edit") }</td>
+            <td class="link">${ this.LinkTo(new DeleteTaskInputModel{ Index = idx}).Text("Delete") }</td>
         </test>
       </tr>
-      #idx++;
+      <set idx="idx + 1" />
     </for>
   </table>
   <p>
     ${ this.LinkTo<UserTaskListController>(x => x.AddTask()).Text("Add Task") }
   </p>
   <p>
-    ${ this.LinkTo<UserLoginController>(x => x.Home()).Text("Log Out") }    
+    ${ this.LinkTo<UserLoginController>(x => x.Home()).Text("Log Out") }
+  </p>
+  <p>
+    <Display name="LoginTime" />
   </p>
 </content:main>

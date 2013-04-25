@@ -9,6 +9,7 @@ namespace TodoSite
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public DateTime CurrentTime { get; set; }
     }
 
     public class UserModel : UserInputModel

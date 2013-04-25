@@ -1,6 +1,11 @@
+using System;
+using System.Reflection;
 using System.Web.Routing;
 using Bottles;
+using FubuCore.Binding;
+using FubuCore.Dates;
 using FubuMVC.Core;
+using FubuMVC.Core.Registration;
 using FubuMVC.StructureMap;
 using StructureMap.Configuration.DSL;
 using FubuMVC.Spark;
@@ -49,7 +54,31 @@ namespace TodoSite
             
             // Policies
             Routes
-                .HomeIs<UserLoginController>(x => x.Home());              
+                .HomeIs<UserLoginController>(x => x.Home());
+            Models
+                .BindPropertiesWith<CurrentTimePropertyBinder>();
+        }
+    }
+    
+    public class CurrentTimePropertyBinder : IPropertyBinder
+    {
+        private readonly ISystemTime _systemTime;
+
+        public CurrentTimePropertyBinder(ISystemTime systemTime)
+        {
+            _systemTime = systemTime;
+        }
+
+        public bool Matches(PropertyInfo property)
+        {
+            return property.PropertyType == typeof(DateTime)
+                && property.Name == "CurrentTime";
+        }
+
+        public void Bind(PropertyInfo property, IBindingContext context)
+        {
+            var value = _systemTime.UtcNow().ToLocalTime();
+            property.SetValue(context.Object, value, null);
         }
     }
 }

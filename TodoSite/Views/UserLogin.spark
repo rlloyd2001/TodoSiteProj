@@ -1,32 +1,20 @@
 <viewdata model="TodoSite.UserInputModel" />
 
 <content:main>
+
   <h3>Login</h3>
   ${ this.FormFor<UserInputModel>() }
     <fieldset>
       <div>
-        ${this.LabelFor(x => x.FirstName)}
-        ${this.InputFor(x => x.FirstName)}
+        <Edit name="FirstName" />
       </div>
       <div>
-        ${this.LabelFor(x => x.LastName)}
-        ${this.InputFor(x => x.LastName)}
+        <Edit name="LastName" />
       </div>
       <input type="Submit" value="Login" />
     </fieldset>
-    ${ this.EndForm() }
+  ${ this.EndForm() }
 
-    <div id="navcontainer">
-      Existing Users
-      <ul id="navlist">
-        <for each="var m in new UsersTasksViewModel().Users">
-          <test if="m.FirstName.Length > 0 && m.LastName.Length > 0">
-            <li>
-              ${ m.FirstName + " " + m.LastName }
-            </li>
-          </test>
-        </for>
-      </ul>
-    </div>
+  <userList />
     
   </content:main>
