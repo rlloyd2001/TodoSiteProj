@@ -1,0 +1,20 @@
+<viewdata model="TodoSite.UserInputModel" />
+
+<content:main>
+
+  <h3>Login</h3>
+  <Form model="UserInputModel">
+    <fieldset>
+      <div>
+        <Edit name="FirstName" />
+      </div>
+      <div>
+        <Edit name="LastName" />
+      </div>
+      <input type="Submit" value="Login" />
+    </fieldset>
+  </Form>
+
+  <Partial model="TodoSite.UsersListInputModel" />
+    
+</content:main>

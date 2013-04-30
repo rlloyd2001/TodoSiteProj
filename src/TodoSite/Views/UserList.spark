@@ -1,0 +1,11 @@
+<use master="" />
+<viewdata model="TodoSite.UsersViewModel" />
+
+<div id="navcontainer">
+  Existing Users
+  <ul id="navlist">
+    <for each="var user in Model.Users">
+        <li> ${ user.FullName} </li>
+    </for>
+  </ul>
+</div>

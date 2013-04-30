@@ -1,0 +1,56 @@
+<viewdata model="TodoSite.UserTasksViewModel" />
+
+<content:main>
+  <h3>
+    <Display name="User.FirstName" />
+    <Display name="User.LastName" />
+  </h3>
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Date and Time</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <for each="var task in Model.TasksWithIndex">
+      <tr>
+        <test if="Model.EditTaskIndex == task.Index || Model.AddedTaskIndex == task.Index">
+            <td class="task" colspan ="3">
+              <Form model="TaskInputModel">
+                <Input_TValue T="TaskInputModel" name="Description" value="task.Description" />
+                <Input_TValue T="TaskInputModel" name="Date" value="task.Date.ToString()" />
+                <Input_TAttrValue T="TaskInputModel" name="Index" attrName="type" attrValue="hidden"
+                                 value="task.Index.ToString()" />
+                <input type="submit" value="Save" />
+              </Form>
+            </td>
+            <td class="link">
+              <test if="Model.AddedTaskIndex >= 0 && Model.AddedTaskIndex == taskIndex">
+                <LinkTo_DeleteTask index="taskIndex" text="Cancel" />
+              <else />
+                <LinkTo_EditTask index="-1" text="Cancel" />
+              </test>
+            </td>
+        <else />
+            <td class="task">${task.Description}</td>
+            <td class="date">${task.Date.ToShortDateString()}, ${task.Date.ToShortTimeString()}</td>
+            <td class="link">
+              <LinkTo_EditTask index="taskIndex" text="Edit" />
+            </td>
+            <td class="link">
+              <LinkTo_DeleteTask index="taskIndex" text="Delete" />
+            </td>
+        </test>
+      </tr>
+    </for>
+  </table>
+  <p>
+    <LinkTo_T T="UserTaskListController" name="AddTask()" text="Add Task" />
+  </p>
+  <p>
+    <LinkTo_T T="UserLoginController" name="Home()" text="Log Out" />
+  </p>
+  <p>
+    <Display name="LoginTime" />
+  </p>
+</content:main>
