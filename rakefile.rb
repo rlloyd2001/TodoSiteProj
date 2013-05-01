@@ -5,9 +5,6 @@ CLR_TOOLS_VERSION = "v4.0.30319"
 
 include FileTest
 require 'albacore'
-require 'EHBuild/drop'
-require 'EHBuild/iis'
-require 'EHBuild/services'
 
 RESULTS_DIR = "results"
 PRODUCT = "TodoSite"
@@ -26,7 +23,6 @@ DROP_OPTIONS = {
   keep_folders: %w{logs}
 }
 
-CLOBBER.include(PACKAGE_DIR)
 
 tc_build_number = ENV["BUILD_NUMBER"]
 build_revision = tc_build_number || Time.new.strftime('5%H%M')
@@ -51,24 +47,9 @@ unless (ENV['IGNORE_BUILDSUPPORT'])
   BUILD_NUMBER = "#{BUILD_VERSION}.#{build_revision}"
 end
 
-@config = load_configuration
 
 desc "**Default**, compiles and runs tests"
 task :default => %w{unlink_scenarios compile:debug unit_test run_jasmine}
-
-#desc "Target used for the CI server"
-#task :ci => %w{clobber unlink_scenarios compile:all unit_test history package prepare:web prepare:service run_jasmine_ci st:backend}
-
-#desc "Used for the ETL StoryTeller CI"
-#task :etl_ci => %w{unlink_scenarios compile:debug st:etl}
-
-#desc "Used for the Backend StoryTeller CI"
-#task :backend_ci => %w{clobber unlink_scenarios compile:debug st:backend}
-
-#desc "Used for the Records StoryTeller CI"
-#task :records_ci => %w{unlink_scenarios compile:debug st:records}
-
-#task :deploy => %w{publish:web publish:service deploy:web deploy:service}
 
 desc "Update the version information for the build"
 assemblyinfo :version do |asm|
@@ -413,31 +394,3 @@ namespace :publish do
   end
 end
 
-namespace :deploy do
-  desc "Deploys from web drop folder"
-  deployiissite :web do |options|
-    source_path = File.join DROP_PUBLISH_DIR, 'Web'
-
-    options.keep_folders = Drop.get_keep_folders
-    options.servers = @config.web_servers
-    options.src_path = source_path
-  end
-
-  desc "Deploys from service drop folder"
-  deployservice :service do |options|
-    source_path = File.join DROP_PUBLISH_DIR, 'Service'
-
-    options.keep_folders = Drop.get_keep_folders
-    options.servers = @config.service_servers
-    options.src_path = source_path
-  end
-end
-
-namespace :local do
-  task :web => %w{prepare:web publish:web deploy:web}
-  task :service => %w{prepare:service publish:service deploy:service}
-  task :raven do
-    raven = Platform.runtime(Nuget.tool("RavenDB.Server", "Raven.Server.exe"))
-    sh "start #{raven}"
-  end
-end
