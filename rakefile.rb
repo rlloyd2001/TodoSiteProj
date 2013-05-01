@@ -49,7 +49,11 @@ end
 
 
 desc "**Default**, compiles and runs tests"
-task :default => %w{unlink_scenarios compile:debug unit_test run_jasmine}
+task :default => %w{compile:debug myNewTask}
+
+task :myNewTask do
+  puts 'hello'
+end
 
 desc "Update the version information for the build"
 assemblyinfo :version do |asm|
@@ -125,55 +129,6 @@ def copyOutputFiles(fromDir, filePattern, outDir)
     copy(file, outDir, :preserve => true) if File.file?(file)
   end
 end
-
-desc "Runs unit tests"
-task :test => [:unit_test]
-
-desc "Run unit tests"
-task :unit_test do
-  runner = NUnitRunner.new :compilemode => "Debug", :source => 'src', :platform => 'x86'
-  tests = Array.new
-  file = File.new("TESTS.txt", "r")
-  assemblies = file.readlines()
-  assemblies.each do |a|
-  test = a.gsub("\r\n", "").gsub("\n", "")
-  tests.push(test)
-  end
-  file.close
-
-  runner.executeTests tests
-end
-
-desc "Set up the virtual directories"
-task :virtual_dir => [:compile] do
-  dir = File.expand_path("src/TodoSite.Web")
-  fubu("createvdir #{dir} client-portal")
-end
-
-#desc "Links the TodoSite.Storyteller project to the main web app for scenario loading"
-#task :link_scenarios => [:aliases] do
-#  bottles 'link portal scenarios'
-#  Rake::Task["restart"].invoke
-#end
-
-
-#desc "Links in the PortalProcess project to run the error watcher in a separate AppDomain"
-#task :link_process => [:aliases] do
-#  bottles 'link portal process'
-#end
-
-#desc "Runs the entire stack of the application in a single app domain"
-#task :run_app_in_a_box => [:aliases, :link_scenarios, :link_process, :restart, :run_raven]
-
-#desc "Runs the entire stack of the application in two app domains"
-#task :run_app_distributed => [:aliases, :link_scenarios, :restart, :run_raven, "prepare:service", :start_error_watcher]
-
-#desc "Starts the error watcher service with the default configuration"
-#task :start_error_watcher do
-#  bottleRunner('TodoSite.ErrorWatcher')
-#end
-
-
 def bottleRunner(assembly)
   sourcePath = File.join('src', assembly, 'bin/debug')
 	toolDir = self.tool_dir("BottleServiceRunner")
