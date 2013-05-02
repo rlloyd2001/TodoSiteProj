@@ -49,11 +49,7 @@ end
 
 
 desc "**Default**, compiles and runs tests"
-task :default => %w{compile:debug myNewTask}
-
-task :myNewTask do
-  puts 'hello'
-end
+task :default => %w{compile:debug}
 
 desc "Update the version information for the build"
 assemblyinfo :version do |asm|

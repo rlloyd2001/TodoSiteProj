@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Web.Routing;
-using Bottles;
 using FubuCore;
 using FubuCore.Binding;
 using FubuCore.Dates;
@@ -17,6 +16,8 @@ using FubuMVC.Core.Runtime;
 using FubuMVC.StructureMap;
 using FubuMVC.Validation;
 using FubuMVC.Validation.UI;
+using FubuPersistence;
+using FubuPersistence.InMemory;
 using StructureMap.Configuration.DSL;
 using FubuMVC.Spark;
 using StructureMap;
@@ -64,7 +65,7 @@ namespace TodoSite
 
             //Services(x => x.AddService<IUsersService, FakeUsersService>());
             Services(x => x.AddService<IUsersService, RavenDbUsersService>());
-
+            
             Policies.Add<StopWatchPolicy>();
 
             AlterSettings<ValidationSettings>(validation =>
@@ -79,6 +80,8 @@ namespace TodoSite
                 //   x.RegisterStrategy(RenderingStrategies.Inline);
                 //});
             });
+
+            //Services(x => x.AddService<Registry>(typeof (InMemoryPersistenceRegistry)));
         }
     }
 

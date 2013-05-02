@@ -4,8 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F38AE53B-4F12-4EA6-8F48-A7505E0CCFCF}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -41,38 +40,11 @@
     <Reference Include="Bottles">
       <HintPath>..\packages\Bottles\lib\Bottles.dll</HintPath>
     </Reference>
-    <Reference Include="Common.Logging">
-      <HintPath>..\packages\Common.Logging\lib\net40\Common.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="DocumentFormat.OpenXml">
-      <HintPath>..\packages\DocumentFormat.OpenXml\lib\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
     <Reference Include="FubuCore">
       <HintPath>..\packages\FubuCore\lib\FubuCore.dll</HintPath>
     </Reference>
-    <Reference Include="FubuJson">
-      <HintPath>..\packages\FubuJson\lib\net40\FubuJson.dll</HintPath>
-    </Reference>
     <Reference Include="FubuLocalization">
       <HintPath>..\packages\FubuLocalization\lib\FubuLocalization.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Ajax">
-      <HintPath>..\packages\FubuMVC.Ajax\lib\net40\FubuMVC.Ajax.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Authentication">
-      <HintPath>..\packages\FubuMVC.Authentication\lib\net40\FubuMVC.Authentication.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Authentication.Windows">
-      <HintPath>..\packages\FubuMVC.Authentication.Windows\lib\net40\FubuMVC.Authentication.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.AutoComplete">
-      <HintPath>..\packages\FubuMVC.AutoComplete\lib\net40\FubuMVC.AutoComplete.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Coffee">
-      <HintPath>..\packages\FubuMVC.Coffee\lib\net40\FubuMVC.Coffee.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.ContentExtensions">
-      <HintPath>..\packages\FubuMVC.ContentExtensions\lib\net40\FubuMVC.ContentExtensions.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Core">
       <HintPath>..\packages\FubuMVC.Core\lib\net40\FubuMVC.Core.dll</HintPath>
@@ -89,32 +61,14 @@
     <Reference Include="FubuMVC.Diagnostics">
       <HintPath>..\packages\FubuMVC.Diagnostics\lib\net40\FubuMVC.Diagnostics.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.Export">
-      <HintPath>..\packages\FubuMVC.Export\lib\net40\FubuMVC.Export.dll</HintPath>
-    </Reference>
     <Reference Include="FubuMVC.JQueryUI">
       <HintPath>..\packages\FubuMVC.JQueryUI\lib\net40\FubuMVC.JQueryUI.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Json">
-      <HintPath>..\packages\FubuMVC.Json\lib\net40\FubuMVC.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Less">
-      <HintPath>..\packages\FubuMVC.Less\lib\net40\FubuMVC.Less.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Localization">
-      <HintPath>..\packages\FubuMVC.Localization\lib\net40\FubuMVC.Localization.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Media">
       <HintPath>..\packages\FubuMVC.Media\lib\net40\FubuMVC.Media.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Navigation">
       <HintPath>..\packages\FubuMVC.Navigation\lib\net40\FubuMVC.Navigation.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.OwinHost">
-      <HintPath>..\packages\FubuMVC.OwinHost\lib\net40\FubuMVC.OwinHost.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.PersistedMembership">
-      <HintPath>..\packages\FubuMVC.PersistedMembership\lib\net40\FubuMVC.PersistedMembership.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.RavenDb">
       <HintPath>..\packages\FubuMVC.RavenDb\lib\net40\FubuMVC.RavenDb.dll</HintPath>
@@ -146,18 +100,11 @@
     <Reference Include="HtmlTags">
       <HintPath>..\packages\HtmlTags\lib\4.0\HtmlTags.dll</HintPath>
     </Reference>
-    <Reference Include="ManagedFusion.Rewriter">
-      <HintPath>..\packages\ManagedFusion.Rewriter\lib\net35\ManagedFusion.Rewriter.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog\lib\net40\NLog.dll</HintPath>
-    </Reference>
     <Reference Include="Raven.Abstractions">
-      <HintPath>..\packages\RavenDB.Client\lib\net40\Raven.Abstractions.dll</HintPath>
+      <HintPath>..\packages\RavenDB.Database\lib\net40\Raven.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Embedded">
       <HintPath>..\packages\RavenDB.Embedded\lib\net40\Raven.Client.Embedded.dll</HintPath>
@@ -168,21 +115,6 @@
     <Reference Include="Raven.Database">
       <HintPath>..\packages\RavenDB.Database\lib\net40\Raven.Database.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.PersistentHashTable">
-      <HintPath>..\packages\Rhino.PersistentHashTable\lib\4.0\Rhino.PersistentHashTable.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.Queues">
-      <HintPath>..\packages\Rhino.Queues\lib\4.0\Rhino.Queues.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus">
-      <HintPath>..\packages\Rhino.ServiceBus\lib\4.0\Rhino.ServiceBus.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus.RhinoQueues">
-      <HintPath>..\packages\Rhino.ServiceBus.RhinoQueues\lib\4.0\Rhino.ServiceBus.RhinoQueues.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus.StructureMap">
-      <HintPath>..\packages\Rhino.ServiceBus.StructureMap\lib\4.0\Rhino.ServiceBus.StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="Spark">
       <HintPath>..\packages\Spark\lib\NET40\Spark.dll</HintPath>
     </Reference>
@@ -190,31 +122,14 @@
       <HintPath>..\packages\structuremap\lib\net40\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebActivator">
       <HintPath>..\packages\WebActivator\lib\NETFramework40\WebActivator.dll</HintPath>
     </Reference>
-    <Reference Include="Wintellect.Threading">
-      <HintPath>..\packages\PowerThreading\lib\net20\Wintellect.Threading.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\TodoSiteStyles.css" />
+    <Content Include="content\styles\TodoSiteStyles.css" />
     <Content Include="Shared\bindings.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -271,13 +186,12 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>53334</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:60554/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

@@ -4,7 +4,7 @@
         <meta charset="utf-8"   />
         <Asset src="twitterbootstrap"/>
         <Asset src="core.css" />
-        <link href="/CSS/TodoSiteStyles.css" rel="stylesheet" type="text/css">
+        <link href="/content/styles/TodoSiteStyles.css" rel="stylesheet" type="text/css">
         <use content="head" />
         <Styles />
     </head>
