@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Runtime;
+using TodoSite.TaskList;
 
 namespace TodoSite
 {
@@ -57,12 +58,12 @@ namespace TodoSite
             return FubuContinuation.RedirectTo(new UserInputValid(), "GET");
         }
 
-        public class UserInputValid { }
-
-        public UserTasksViewModel get_UserLogin(UserInputValid valid)
+        public UserTasksViewModel get_UserLogin(UserLoginController.UserInputValid valid)
         {
             return _sessionState.Get<UserTasksViewModel>();
         }
+
+        public class UserInputValid { }
 
         public UserInputModel get_Home(UserInputModel userInputModel)
         {

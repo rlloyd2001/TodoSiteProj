@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TodoSite
+namespace TodoSite.TaskList
 {
     public class UserTasksViewModel
     {
@@ -39,27 +39,6 @@ namespace TodoSite
         }
 
         public int EditTaskIndex { get; set; }
-        public int AddedTaskIndex { get; private set; }
-
-        public void UpdateTask(int index, TaskModel taskModel)
-        {
-            Tasks[index] = taskModel;
-            if (index == EditTaskIndex) EditTaskIndex = -1;
-            if (index == AddedTaskIndex) AddedTaskIndex = -1;
-        }
-
-        public void AddTask(TaskModel taskModel)
-        {
-            Tasks.Add(taskModel);
-            AddedTaskIndex = Tasks.Count - 1;
-            EditTaskIndex = -1;
-        }
-
-        public void DeleteTask(int index)
-        {
-            if (index < 0 || Tasks.Count < index) return;
-            Tasks.RemoveAt(index);
-            EditTaskIndex = AddedTaskIndex = -1;
-        }
-    }
+        public int AddedTaskIndex { get; set; }
+   }
 }

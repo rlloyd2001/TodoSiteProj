@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Web.Routing;
 using FubuCore;
 using FubuCore.Binding;
 using FubuCore.Dates;
@@ -11,18 +10,15 @@ using FubuMVC.Core;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Registration;
 using FubuMVC.Core.Registration.Nodes;
-using FubuMVC.Core.Registration.ObjectGraph;
 using FubuMVC.Core.Runtime;
 using FubuMVC.StructureMap;
 using FubuMVC.Validation;
 using FubuMVC.Validation.UI;
-using FubuPersistence;
-using FubuPersistence.InMemory;
-using StructureMap.Configuration.DSL;
-using FubuMVC.Spark;
 using StructureMap;
+using StructureMap.Configuration.DSL;
+using TodoSite.TaskList;
 
-namespace TodoSite
+namespace TodoSite.App_Start
 {
     // Using a separate class for bootstrapping makes it much easier to reuse your application 
     // in testing scenarios with either SelfHost or OWIN/Katana hosting
@@ -46,6 +42,15 @@ namespace TodoSite
         }
     }
 
+    public class MyRegistry : Registry
+    {
+        public MyRegistry()
+        {
+            For<IUsersService>().Add<RavenDbUsersService>();
+            For<IUserTasksService>().Add<UserTasksService>();
+        }
+    }
+
     public class MyFubuMvcPolicies : FubuRegistry
     {
         public MyFubuMvcPolicies()
@@ -63,10 +68,11 @@ namespace TodoSite
             Models
                 .BindPropertiesWith<CurrentTimePropertyBinder>();
 
-            //Services(x => x.AddService<IUsersService, FakeUsersService>());
-            Services(x => x.AddService<IUsersService, RavenDbUsersService>());
+            Services(x => x.AddService<Registry, MyRegistry>());
             
-            Policies.Add<StopWatchPolicy>();
+            //Policies.Add<StopWatchPolicy>();
+
+            Routes.ForInputTypesOf<ITaskInput>(x => x.RouteInputFor(model => model.Index));
 
             AlterSettings<ValidationSettings>(validation =>
             {

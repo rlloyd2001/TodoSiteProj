@@ -3,3 +3,4 @@
 ﻿<use namespace="FubuMVC.Core.Assets" />
 <use namespace="System.Linq" />
 <use namespace="TodoSite" />
+<use namespace="TodoSite.TaskList" />

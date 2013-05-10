@@ -1,4 +1,4 @@
-<viewdata model="TodoSite.UserTasksViewModel" />
+<viewdata model="TodoSite.TaskList.UserTasksViewModel" />
 
 <content:main>
   <h3>
@@ -25,8 +25,8 @@
               </Form>
             </td>
             <td class="link">
-              <test if="Model.AddedTaskIndex >= 0 && Model.AddedTaskIndex == taskIndex">
-                <LinkTo_DeleteTask index="taskIndex" text="Cancel" />
+              <test if="Model.AddedTaskIndex >= 0 && Model.AddedTaskIndex == task.Index">
+                <LinkTo_DeleteTask index="task.Index" text="Cancel" />
               <else />
                 <LinkTo_EditTask index="-1" text="Cancel" />
               </test>
@@ -35,10 +35,10 @@
             <td class="task">${task.Description}</td>
             <td class="date">${task.Date.ToShortDateString()}, ${task.Date.ToShortTimeString()}</td>
             <td class="link">
-              <LinkTo_EditTask index="taskIndex" text="Edit" />
+              <LinkTo_EditTask index="task.Index" text="Edit" />
             </td>
             <td class="link">
-              <LinkTo_DeleteTask index="taskIndex" text="Delete" />
+              <LinkTo_DeleteTask index="task.Index" text="Delete" />
             </td>
         </test>
       </tr>

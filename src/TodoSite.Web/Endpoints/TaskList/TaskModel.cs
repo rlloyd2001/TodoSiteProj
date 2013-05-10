@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using FubuMVC.Core.Registration;
 using FubuMVC.Validation;
 
-//using FubuMVC.Validation;
-
-namespace TodoSite
+namespace TodoSite.TaskList
 {
     public class TaskModel
     {

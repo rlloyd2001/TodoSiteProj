@@ -11,13 +11,13 @@ namespace TodoSite
         public RavenDbUsersService(IEntityRepository repository)
         {
             _repository = repository;
-            var count = _repository.All<UserTasksModel>().Count();
+            //var count = _repository.All<UserTasksModel>().Count();
 
-            if (count != 0) return;
-            foreach (var m in FakeUsersService.CreateUsers())
-            {
-                _repository.Update(m);
-            }
+//            if (count != 0) return;
+//            foreach (var m in FakeUsersService.CreateUsers())
+//            {
+//                _repository.Update(m);
+//            }
         }
 
         public UserTasksModel InsertUser(UserModel input)

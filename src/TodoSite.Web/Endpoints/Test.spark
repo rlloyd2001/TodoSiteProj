@@ -1,0 +1,8 @@
+<viewdata model="TodoSite.Test.TestViewModel" />
+<content:main>
+  <Stylesheet href="test.less" />
+  <Script src="test" />
+  <div id="content">
+    
+  </div>
+</content:main>

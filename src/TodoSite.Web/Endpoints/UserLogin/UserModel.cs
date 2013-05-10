@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using FubuCore.Reflection;
 using FubuLocalization;
 using FubuMVC.Core.Registration;
@@ -11,6 +11,12 @@ namespace TodoSite
 {
     public class UserInputModel
     {
+        public UserInputModel()
+        {
+            FirstName = "";
+            LastName = "";
+        }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime CurrentTime { get; set; }
@@ -19,6 +25,10 @@ namespace TodoSite
         {
             get { return FirstName + " " + LastName; }
         }
+    }
+
+    public class UserModel : UserInputModel
+    {
     }
 
     public class UserInputModelOverrides : OverridesFor<UserInputModel>
@@ -49,9 +59,5 @@ namespace TodoSite
                                      TemplateValue.For("name", name));
             }
         }
-    }
-
-    public class UserModel : UserInputModel
-    {
     }
 }

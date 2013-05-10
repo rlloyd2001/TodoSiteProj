@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using FubuCore;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Runtime;
 
-namespace TodoSite
+namespace TodoSite.TaskList
 {
     public class UserTaskListController
     {
         private readonly IUsersService _usersService;
         private readonly ISessionState _session;
+        private IUserTasksService _userTasksService;
 
-        public UserTaskListController(IUsersService usersService, ISessionState session)
+        public UserTaskListController(IUsersService usersService, ISessionState session, IUserTasksService userTasksService)
         {
+            _userTasksService = userTasksService;
             _usersService = usersService;
             _session = session;
         }
@@ -26,34 +24,34 @@ namespace TodoSite
 
         public UserTasksViewModel DeleteTask(DeleteTaskInputModel inputModel)
         {
-            return WithViewModel(x => x.DeleteTask(inputModel.Index));
+            return WithViewModel(x => _userTasksService.DeleteTask(x, inputModel.Index));
         }
 
         public FubuContinuation post_SaveTask(TaskInputModel inputModel)
         {
-            WithViewModel(x => x.UpdateTask(inputModel.Index, inputModel));
+            WithViewModel(x => _userTasksService.UpdateTask(x, inputModel));
             return FubuContinuation.RedirectTo<TaskInputModel>("GET");
         }
 
         public UserTasksViewModel get_SaveTask(TaskInputModel inputModel)
         {
-            return GetUsersTasksViewModel();
+            return GetUserTasksViewModel();
         }
 
         public UserTasksViewModel AddTask()
         {
-            return WithViewModel(x => x.AddTask(new TaskModel {Description = "new task", Date = DateTime.Now}));
+            return WithViewModel(x => _userTasksService.AddTask(x, new TaskModel {Description = "new task", Date = DateTime.Now}));
         }
 
         private UserTasksViewModel WithViewModel(Action<UserTasksViewModel> action)
         {
-            UserTasksViewModel model = GetUsersTasksViewModel();
+            UserTasksViewModel model = GetUserTasksViewModel();
             action(model);
             _usersService.Update(model.CurrentUser);
             return model;
         }
 
-        private UserTasksViewModel GetUsersTasksViewModel()
+        private UserTasksViewModel GetUserTasksViewModel()
         {
             return _session.Get<UserTasksViewModel>(); 
         }
