@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSite.Web.Tests", "TodoS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSite.Storyteller", "TodoSite.Storyteller\TodoSite.Storyteller.csproj", "{13DA149B-D8D2-4C4F-8D2D-E31A286F89E6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B8764DE-1A0D-4E16-9B7A-BD797B66E3AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

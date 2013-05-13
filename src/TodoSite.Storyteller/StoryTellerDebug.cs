@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using StoryTeller.Execution;
 
 namespace StoryTellerTestHarness
@@ -11,7 +12,7 @@ namespace StoryTellerTestHarness
         [TestFixtureSetUp]
         public void SetupRunner()
         {
-            runner = new ProjectTestRunner(@"C:\home\github\FubuMVC.Authentication\src\AuthenticationStoryteller\storyteller.xml");
+            runner = new ProjectTestRunner(@"C:\home\study\TodoSiteProj\src\TodoSite.Storyteller\storyteller.xml");
             runner.Project.TimeoutInSeconds = 240;
         }
 

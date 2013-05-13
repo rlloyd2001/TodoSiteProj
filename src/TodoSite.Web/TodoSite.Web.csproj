@@ -142,7 +142,9 @@
     <Content Include="Shared\bindings.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ripple.dependencies.config" />
+    <Content Include="ripple.dependencies.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="web.asset.config">
       <SubType>Designer</SubType>
     </None>
