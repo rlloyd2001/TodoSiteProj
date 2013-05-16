@@ -1,4 +1,3 @@
-﻿using System;
 using NUnit.Framework;
 using StoryTeller.Execution;
 
@@ -12,14 +11,13 @@ namespace StoryTellerTestHarness
         [TestFixtureSetUp]
         public void SetupRunner()
         {
-            runner = new ProjectTestRunner(@"C:\home\study\TodoSiteProj\src\TodoSite.Storyteller\storyteller.xml");
-            runner.Project.TimeoutInSeconds = 240;
+            runner = new ProjectTestRunner(@"C:\home\study\TodoSiteProj\src\TodoSite.Storyteller\TodoSite.xml");
         }
 
         [Test]
-        public void Log_in_successfully()
+        public void First_Test()
         {
-            runner.RunAndAssertTest("Logins/Log in successfully");
+            runner.RunAndAssertTest("First Test");
         }
 
         [TestFixtureTearDown]

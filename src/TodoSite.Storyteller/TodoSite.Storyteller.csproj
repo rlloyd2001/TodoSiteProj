@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13DA149B-D8D2-4C4F-8D2D-E31A286F89E6}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{844ECC2A-3524-47B2-91FD-085A20E51478}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TodoSite.Storyteller</RootNamespace>
-    <AssemblyName>TodoSite.Storyteller</AssemblyName>
+    <RootNamespace>TodoSite.StoryTeller</RootNamespace>
+    <AssemblyName>TodoSite.StoryTeller</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,10 +31,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bottles">
       <HintPath>..\packages\Bottles\lib\Bottles.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="FubuCore">
       <HintPath>..\packages\FubuCore\lib\FubuCore.dll</HintPath>
@@ -39,26 +46,20 @@
     <Reference Include="FubuLocalization">
       <HintPath>..\packages\FubuLocalization\lib\FubuLocalization.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.Ajax">
+      <HintPath>..\packages\FubuMVC.Ajax\lib\net40\FubuMVC.Ajax.dll</HintPath>
+    </Reference>
+    <Reference Include="FubuMVC.ContentExtensions">
+      <HintPath>..\packages\FubuMVC.ContentExtensions\lib\net40\FubuMVC.ContentExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="FubuMVC.Core">
       <HintPath>..\packages\FubuMVC.Core\lib\net40\FubuMVC.Core.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.Core.Assets">
-      <HintPath>..\packages\FubuMVC.Core.Assets\lib\net40\FubuMVC.Core.Assets.dll</HintPath>
+    <Reference Include="FubuMVC.Katana">
+      <HintPath>..\packages\FubuMVC.Katana\lib\net40\FubuMVC.Katana.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.Core.UI">
-      <HintPath>..\packages\FubuMVC.Core.UI\lib\net40\FubuMVC.Core.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Core.View">
-      <HintPath>..\packages\FubuMVC.Core.View\lib\net40\FubuMVC.Core.View.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Diagnostics">
-      <HintPath>..\packages\FubuMVC.Diagnostics\lib\net40\FubuMVC.Diagnostics.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.JQueryUI">
-      <HintPath>..\packages\FubuMVC.JQueryUI\lib\net40\FubuMVC.JQueryUI.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Less">
-      <HintPath>..\packages\FubuMVC.Less\lib\net40\FubuMVC.Less.dll</HintPath>
+    <Reference Include="FubuMVC.Localization">
+      <HintPath>..\packages\FubuMVC.Localization\lib\net40\FubuMVC.Localization.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Media">
       <HintPath>..\packages\FubuMVC.Media\lib\net40\FubuMVC.Media.dll</HintPath>
@@ -66,45 +67,48 @@
     <Reference Include="FubuMVC.Navigation">
       <HintPath>..\packages\FubuMVC.Navigation\lib\net40\FubuMVC.Navigation.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.OwinHost">
+      <HintPath>..\packages\FubuMVC.OwinHost\lib\net40\FubuMVC.OwinHost.dll</HintPath>
+    </Reference>
     <Reference Include="FubuMVC.PersistedMembership">
       <HintPath>..\packages\FubuMVC.PersistedMembership\lib\net40\FubuMVC.PersistedMembership.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.RavenDb">
       <HintPath>..\packages\FubuMVC.RavenDb\lib\net40\FubuMVC.RavenDb.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.SlickGrid">
-      <HintPath>..\packages\FubuMVC.SlickGrid\lib\net40\FubuMVC.SlickGrid.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Spark">
-      <HintPath>..\packages\FubuMVC.Spark\lib\net40\FubuMVC.Spark.dll</HintPath>
+    <Reference Include="FubuMVC.SelfHost">
+      <HintPath>..\packages\FubuMVC.SelfHost\lib\net40\FubuMVC.SelfHost.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.StructureMap">
       <HintPath>..\packages\FubuMVC.StructureMap\lib\net40\FubuMVC.StructureMap.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.TwitterBootstrap">
-      <HintPath>..\packages\FubuMVC.TwitterBootstrap\lib\net40\FubuMVC.TwitterBootstrap.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Validation">
-      <HintPath>..\packages\FubuMVC.Validation\lib\FubuMVC.Validation.dll</HintPath>
-    </Reference>
     <Reference Include="FubuPersistence">
       <HintPath>..\packages\FubuPersistence\lib\net40\FubuPersistence.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuValidation">
-      <HintPath>..\packages\FubuValidation\lib\FubuValidation.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuValidation.StructureMap">
-      <HintPath>..\packages\FubuValidation\lib\FubuValidation.StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="HtmlTags">
       <HintPath>..\packages\HtmlTags\lib\4.0\HtmlTags.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>..\packages\FubuMVC.Katana\lib\net40\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>..\packages\FubuMVC.Katana\lib\net40\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin.Extensions">
+      <HintPath>..\packages\Owin.Extensions\lib\net40\Owin.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Abstractions">
       <HintPath>..\packages\RavenDB.Database\lib\net40\Raven.Abstractions.dll</HintPath>
@@ -118,6 +122,9 @@
     <Reference Include="Raven.Database">
       <HintPath>..\packages\RavenDB.Database\lib\net40\Raven.Database.dll</HintPath>
     </Reference>
+    <Reference Include="Selenium.WebDriverBackedSelenium">
+      <HintPath>..\packages\Selenium.WebDriverBackedSelenium\lib\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>
+    </Reference>
     <Reference Include="Serenity">
       <HintPath>..\packages\Serenity\lib\net40\Serenity.dll</HintPath>
     </Reference>
@@ -128,37 +135,63 @@
       <HintPath>..\packages\Storyteller2\lib\net40\StoryTeller.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap\lib\net40\StructureMap.dll</HintPath>
+      <HintPath>..\packages\structuremap\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <HintPath>..\packages\Microsoft.Net.Http\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.SelfHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.SelfHost\lib\net40\System.Web.Http.SelfHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WebActivator">
-      <HintPath>..\packages\WebActivator\lib\NETFramework40\WebActivator.dll</HintPath>
+    <Reference Include="ThoughtWorks.Selenium.Core">
+      <HintPath>..\packages\Selenium.RC\lib\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver">
+      <HintPath>..\packages\Selenium.WebDriver\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\packages\Selenium.Support\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fixtures\ModelFixture.cs" />
-    <Compile Include="HomeEndpoint.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StoryTellerDebug.cs" />
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Fixtures\CalculatorFixture1.cs" />
+    <Compile Include="Fixtures\LoginScreenFixture.cs" />
+    <Compile Include="Fixtures\MathFixture.cs" />
+    <Compile Include="Fixtures\MyFirstFixture.cs" />
     <Compile Include="StorytellerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="storyteller.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tests\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\TodoSite.Web\TodoSite.Web.csproj">
-      <Project>{F38AE53B-4F12-4EA6-8F48-A7505E0CCFCF}</Project>
+      <Project>{f38ae53b-4f12-4ea6-8f48-a7505e0ccfcf}</Project>
       <Name>TodoSite.Web</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ripple.dependencies.config" />
+    <None Include="TodoSite.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tests\FirstTest.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

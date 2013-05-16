@@ -122,7 +122,7 @@
       <HintPath>..\packages\Spark\lib\NET40\Spark.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap\lib\net40\StructureMap.dll</HintPath>
+      <HintPath>..\packages\structuremap\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap.AutoMocking">
       <HintPath>..\packages\structuremap.automocking\lib\StructureMap.AutoMocking.dll</HintPath>

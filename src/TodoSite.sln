@@ -1,13 +1,12 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSite.Web", "TodoSite.Web\TodoSite.Web.csproj", "{F38AE53B-4F12-4EA6-8F48-A7505E0CCFCF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSite.Web.Tests", "TodoSite.Web.Tests\TodoSite.Web.Tests.csproj", "{22BCA8C3-F6F8-4D4C-8DA8-0D99EF148E11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSite.Storyteller", "TodoSite.Storyteller\TodoSite.Storyteller.csproj", "{13DA149B-D8D2-4C4F-8D2D-E31A286F89E6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B8764DE-1A0D-4E16-9B7A-BD797B66E3AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSite.StoryTeller", "TodoSite.StoryTeller\TodoSite.StoryTeller.csproj", "{844ECC2A-3524-47B2-91FD-085A20E51478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +14,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Release|x86.ActiveCfg = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Retail|Any CPU.ActiveCfg = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Retail|Any CPU.Build.0 = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Retail|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Retail|Mixed Platforms.Build.0 = Release|Any CPU
+		{844ECC2A-3524-47B2-91FD-085A20E51478}.Retail|x86.ActiveCfg = Release|Any CPU
 		{F38AE53B-4F12-4EA6-8F48-A7505E0CCFCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F38AE53B-4F12-4EA6-8F48-A7505E0CCFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F38AE53B-4F12-4EA6-8F48-A7505E0CCFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,12 +37,9 @@ Global
 		{22BCA8C3-F6F8-4D4C-8DA8-0D99EF148E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22BCA8C3-F6F8-4D4C-8DA8-0D99EF148E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22BCA8C3-F6F8-4D4C-8DA8-0D99EF148E11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13DA149B-D8D2-4C4F-8D2D-E31A286F89E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13DA149B-D8D2-4C4F-8D2D-E31A286F89E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13DA149B-D8D2-4C4F-8D2D-E31A286F89E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13DA149B-D8D2-4C4F-8D2D-E31A286F89E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
+
