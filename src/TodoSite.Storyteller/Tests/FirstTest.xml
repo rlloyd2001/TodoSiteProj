@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Test name="First Test" lifecycle="Regression">
+  <LoginScreen>
+    <RecycleTheBrowser isStep="True" />
+    <Logout isStep="True" />
+  </LoginScreen>
+</Test>

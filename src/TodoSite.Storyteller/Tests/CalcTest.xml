@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Test name="CalcTest" lifecycle="Regression">
+  <Calculator3>
+    <EnterNumber isStep="True" number="2" />
+    <Add isStep="True" operand="3" />
+    <NumberShouldBe isStep="True" currentValue="5" />
+  </Calculator3>
+</Test>

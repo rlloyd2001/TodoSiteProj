@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Test name="MathTest" lifecycle="Regression">
+  <DoSomeMath>
+    <DoSomeMath isStep="True">
+      <Math>
+        <Adding isStep="True" x="3" y="6" returnValue="9" />
+      </Math>
+    </DoSomeMath>
+  </DoSomeMath>
+</Test>
